@@ -18,22 +18,6 @@ KellyCalculator<T1, T2>::KellyCalculator(const T1& prob_of_win, const T1& prob_o
 }
 
 template <typename T1, typename T2>
-KellyCalculator<T1, T2>::KellyCalculator(const KellyCalculator& kelly_calculator)
-{
-    /*
-    KellyCalculator Copy Constructor
-    */
-}
-
-template <typename T1, typename T2>
-KellyCalculator<T1, T2>::KellyCalculator(KellyCalculator&& kelly_calculator)
-{
-    /*
-    KellyCalculator Move Constructor 
-    */
-}
-
-template <typename T1, typename T2>
 KellyCalculator<T1, T2>::~KellyCalculator(void)
 {
     /*
@@ -41,5 +25,36 @@ KellyCalculator<T1, T2>::~KellyCalculator(void)
     */
 }
 
+template <typename T1, typename T2>
+float KellyCalculator<T1, T2>::getResult(void)
+{
+    try {
+        calculateFraction();
+    } catch (const std::exception& exception){
+        std::cerr << "ERROR :" << exception.what() << std::endl;
+    } catch (...) {
+        std::cerr << "ERROR : UNKNOWN" << std::endl;
+    }
+}
 
+template <typename T1, typename T2>
+void KellyCalculator<T1, T2>::calculateFraction(void)
+{
+    if (isDevisionByZero() == true) {
+        throw KellyException("[KellyCalculator::calculateFraction()] Devision By Zero");
+    } else {
+        fraction_of_bankroll = static_cast<float>(probability_of_win / loss_in_negative_outcome)
+                                - static_cast<float>(probability_of_loss / gain_in_positive_outcome);
+    }
+}
 
+template <typename T1, typename T2>
+bool KellyCalculator<T1, T2>::isDevisionByZero(void) const noexcept
+{
+    if (ABS(loss_in_negative_outcome -  0.0) < EPSILION ||
+        ABS(gain_in_positive_outcome - 0.0) < EPSILION) {
+        return true;
+    }
+
+    return false;
+}

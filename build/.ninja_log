@@ -1,5 +1,4 @@
 # ninja log v5
-2	232	1710160641917796226	CMakeFiles/Kelly_Calculator.dir/src/kelly_calculator.cpp.o	470285fa14c9ae45
-233	248	1710160641936012000	libKelly_Calculator.a	c641fa236d7c06aa
-15	228	1710164507343962556	CMakeFiles/Kelly_Calculator.dir/src/kelly_calculator.cpp.o	470285fa14c9ae45
-228	243	1710164507362076000	libKelly_Calculator.a	c641fa236d7c06aa
+232	247	1710339245320370000	libKelly_Calculator.a	c641fa236d7c06aa
+16	232	1710339245302705877	CMakeFiles/Kelly_Calculator.dir/src/kelly_calculator.cpp.o	470285fa14c9ae45
+1	68	1710339485860675978	build.ninja	b71fbf85464577e9

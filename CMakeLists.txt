@@ -12,5 +12,5 @@ include_directories(include)
 file(GLOB SOURCES "src/*.cpp")
 
 # Generate library
-add_library(${PROJECT_NAME} ${SOURCES})
+add_library(${PROJECT_NAME} STATIC ${SOURCES})
 
